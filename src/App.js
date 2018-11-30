@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
+import Animal from './Animal'
+import Person from './Person'
+import ScoreButton from './ScoreButton'
 import logo from './logo.svg';
 import './App.css';
+
+const users = [
+  {name: "Bob"},
+  {name: "John"},
+  {name: "Jane"},
+]
+
+const people = users.map((user, i) => {
+  return (
+  <div className="Person" key={i}>
+    <Person name={user.name} key={i}/>
+  </div>
+)})
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Animal/>
+        {people}
       </div>
     );
   }
